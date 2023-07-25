@@ -1,0 +1,89 @@
+/********* PLATAFORMA *********/
+
+.header-plataforma .navbar{
+    background: rgb(0,7,18);
+    background: linear-gradient(359deg, rgba(0,7,18,0) 18%, rgba(0,7,18,0.31985294117647056) 40%, rgba(0,7,18,0.7904411764705882) 71%);
+}
+
+.titulo-plataforma {
+    height: 6vh;
+    text-align: left;
+    align-self: left;
+}
+
+.plataforma {
+    display: grid;
+    margin: auto;
+    padding: 4vh 10px 10px 10px ;
+    width: 100vw;
+    height: 94vh;
+    grid-template:
+        "microscopio visualizacion ejercicios" 3fr
+        "controles visualizacion ejercicios" 2fr
+        / 2fr 4fr 2fr;
+    }
+
+.microscopio {
+    grid-area: microscopio;
+    overflow: hidden;
+    @include flex (null, center, center);
+    img {
+        object-fit: contain;
+        max-width: 100%;
+        max-height:100%;
+        object-position: center;
+    }
+}
+
+.controles {
+    grid-area: controles;
+    padding: 0 50px;
+    @include font (map-get($colors, "offwhite"), 1rem, 500);
+    .form-select {
+        margin-bottom: 10px;
+    }
+}
+
+.visualizacion {
+    grid-area: visualizacion;
+    overflow: hidden;
+    width: 700px;
+    position: relative;
+}
+
+#ejercicio-img-recorte {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 700px;
+    z-index: 2;
+}
+
+#ejercicio-img-display {
+    margin-top: 70px;
+    width: 700px;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.preguntas-form {
+    grid-area: ejercicios;
+    @include flex(column, start, space-around);
+    padding: 5px 10px 5px 5px;
+    @include font (map-get($colors, "offwhite"), 1rem, 500);
+
+    .preguntas-lista {
+        @include flex (column, center, null);
+        li {
+            margin-top: 20px;
+        }
+    }
+    .btn {
+        margin-top: 20px;
+        @include button (map-get($colors, "lightblue"), transparent, map-get($colors, "offwhite"), 25px, map-get($colors, "trueblue"));
+    }
+}
+
+.subtitulo-plataforma {
+    @include font (map-get($colors, "offwhite"), ($text-m - 0.3rem), 700);
+}
