@@ -35,7 +35,8 @@ La nota final del ejercicio es el promedio entre la nota del enfoque y la nota d
 
 <li>Si el perfil de usuario es profesor: <br>
 Las tarjetas de los ejercicios muestran la fecha de vencimiento del ejercicio y cuántas preguntas tiene. Cada tarjeta tiene en la esquina inferior derecha un botón para ingresar a la plataforma y previsualizar el ejercicio similar al de los alumnos, y en la esquina inferior izquierda otros dos botones: uno para eliminar el ejercicio y otro para editar los datos del ejercicio. 
-Además de las tarjetas de ejercicios, si el usuario es profesor tiene disponible una tarjeta de “Crear ejercicio”, que redirige a una página para crear ejercicios.
+Además de las tarjetas de ejercicios, si el usuario es profesor tiene disponible una tarjeta de “Crear ejercicio”, que redirige a una página para crear ejercicios. 
+  Nota: <i>El creador permite simular la subida de una imagen, sin embargo, al no trabajar con un servidor <u>la imagen nunca se sube a ningún lado</u>u, es sólo una simulación</i>i
 
 <b><h3>Dashboard - Lista</h3></b>
 Crea una lista dinámica de 4 columnas de acuerdo al perfil.
