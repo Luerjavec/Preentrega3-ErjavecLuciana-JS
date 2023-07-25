@@ -21,7 +21,6 @@ function createTable (headers) {
 }
 
 //Creación dinámica del body de las tablas
-console.log(usuarios)
 
 function tableBodyAlumno() {
     let tags = "";

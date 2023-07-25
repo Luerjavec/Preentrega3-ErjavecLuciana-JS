@@ -103,23 +103,18 @@ function darNotaEnfoque() {
 
     let difMacrometricoIdeal = Math.round((ejer.enfoque - macrometricoSlider.value)); //(la nota baja 1 pto cada 1 unidad que se aleja)
     if (difMacrometricoIdeal < 0) { difMacrometricoIdeal = difMacrometricoIdeal * (-1) };
-    console.log(difDiafragmaIdeal, difMacrometricoIdeal, difVoltimetroIdeal)
 
     let notaVoltimetro = rubricaNotas[difVoltimetroIdeal] || 0;
     let notaDiafragma = rubricaNotas[difDiafragmaIdeal] || 0;
     let notaMacrometrico = rubricaNotas[difMacrometricoIdeal] || 0;
 
-    console.log(notaDiafragma, notaMacrometrico, notaVoltimetro)
     return Math.round((notaVoltimetro + notaDiafragma + notaMacrometrico) / 3);
 }
 
-function darNotaFinal() {
-    let notaEnfoque = darNotaEnfoque();
-    alert("nota enfoque: " + notaEnfoque);
+function darNotaPreguntas() {
     const opcion = document.querySelector("#pregunta"); //la opción correcta siempre es la 1
     let notaPreguntas = opcion.value == 1 ? 10 : 0;
-    let notaFinal = (notaEnfoque + notaPreguntas) / 2;
-    return Math.round(notaFinal);
+    return notaPreguntas;
 }
 
 //Obtenemos la nota y fecha y la guardamos en el array de notas del usuario en el LocalStorage. Luego redirige al dashboard de ejercicios
@@ -128,14 +123,26 @@ function notaToArray() {
     const respuesta = document.querySelector(".preguntas-form")
     respuesta.addEventListener("submit", (e) => {
         e.preventDefault();
-        let nota = darNotaFinal();
+        let notaEnfoque = darNotaEnfoque();
+        let notaPreguntas = darNotaPreguntas()
+        let notaFinal = Math.round((notaEnfoque + notaPreguntas) / 2);
         let fecha = new Date().toLocaleDateString('en-GB');
 
-        const nuevaNota = new Nota(nota, fecha);
+        const nuevaNota = new Nota(notaFinal, fecha);
         usuarios[indexUs].notas.splice(numEjer, 1, nuevaNota);
         localStorage.setItem("usuariosMV", JSON.stringify(usuarios));
 
-        window.location = "dashboard-ejercicios.html";
+        Swal.fire({
+            title: `${notaFinal}`,
+            text: `Nota enfoque: ${notaEnfoque}, Nota pregunta: ${notaPreguntas}. Nota final : ${notaFinal}`,
+            icon: 'success',
+            iconColor: '#0a5124',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = "dashboard-ejercicios.html";
+            }
+        })
     });
 }
 

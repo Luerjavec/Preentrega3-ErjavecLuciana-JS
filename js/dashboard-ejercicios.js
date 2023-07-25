@@ -63,11 +63,20 @@ function editarEjercicio() {
             let btnType = boton.classList.toString()
 
             if (btnType.includes("delete-btn")) {
-                alert("delete")
-                ejercicios.splice(boton.id, 1);
-                actualizarNum();
-                localStorage.setItem("ejerciciosMV", JSON.stringify(ejercicios));
-                window.location = "dashboard-ejercicios.html"
+                Swal.fire({
+                    title: 'Eliminar',
+                    text: '¿Estás seguro de eliminar el ejercicio?',
+                    icon: 'warning',
+                    iconColor: '#6a1635',
+                    confirmButtonText: 'Eliminar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        ejercicios.splice(boton.id, 1);
+                        actualizarNum();
+                        localStorage.setItem("ejerciciosMV", JSON.stringify(ejercicios));
+                        window.location = "dashboard-ejercicios.html"
+                    }
+                })
 
             } else if (btnType.includes("edit-btn")) {
                 sessionStorage.setItem("accionEjercicios", JSON.stringify("editar"))

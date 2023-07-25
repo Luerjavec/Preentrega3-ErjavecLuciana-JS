@@ -1,10 +1,17 @@
+// Dato
+
+Swal.fire({
+    html: `</p>Se puede crear un usuario nuevo o usar uno precargado de prueba:
+    <br>profe@gmail.com, contraseña: profe </br> alumno@gmail.com, contraseña: alumno</br>`,
+    icon: 'info',
+    iconColor: '#0a2451',
+    confirmButtonText: 'OK'
+})
+
 // Tomamos los usuarios y ejercicios cargados en el localstorage
 
 usuarios = JSON.parse(localStorage.getItem("usuariosMV"));
 ejercicios = JSON.parse(localStorage.getItem("ejerciciosMV"));
-
-console.log(usuarios);
-console.log(ejercicios);
 
 // animaciones intercambiantes formulario ingresar vs. crear cuenta
 
@@ -41,10 +48,22 @@ function crearCuenta() {
     const registerPerfil = document.querySelector('input[name=perfil]:checked').value;
 
     if ((usuarios.some(u => u.email == registerMail.toLowerCase())) == true) {
-        alert("El mail " + registerMail + "ya se encuentra registrado. Ingrese otro mail");
+        Swal.fire({
+            title: `Mail existente`,
+            text: `El mail ${registerMail} ya se encuentra registrado`,
+            icon: 'warning',
+            iconColor: '#6a1635',
+            confirmButtonText: 'OK'
+        })
     } else {
         usuarioToArray(registerPerfil, registerNombre, registerMail, registerPassword);
-        alert("Listo " + registerNombre + "! Tu cuenta ha fue creada. Para ingresar a tu cuenta, tocá aceptar.");
+        Swal.fire({
+            title: `Cuenta creada`,
+            text: `Listo ${registerNombre}, ya podés usar tu cuenta para iniciar sesión`,
+            icon: 'success',
+            iconColor: '#0a5124',
+            confirmButtonText: 'OK'
+        })
     }
 };
 
@@ -58,6 +77,11 @@ function iniciarSesion() {
         sessionStorage.setItem("sesionMV", JSON.stringify(usuarios[indexUs])); //guarda los datos del usuario en la sesión para recuperarlos en el dashboard
             window.location = "dashboard-home.html";        
     } else {
-        alert("datos incorrectos");
+        Swal.fire({
+            title: 'Datos incorrectos',
+            icon: 'error',
+            iconColor: '#6a1635',
+            confirmButtonText: 'OK'
+        })
     }
 };

@@ -285,6 +285,23 @@ i {
       padding-top: 10px; }
 
 /********* PLATAFORMA *********/
+.body-plataforma {
+  position: relative; }
+
+.back-btn {
+  color: #afcadb;
+  font-size: 3.5rem;
+  font-weight: 500;
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  transition: all .3s; }
+  .back-btn:hover {
+    color: white;
+    transform: translateX(-5px); }
+
 .header-plataforma .navbar {
   background: #000712;
   background: linear-gradient(359deg, rgba(0, 7, 18, 0) 18%, rgba(0, 7, 18, 0.319853) 40%, rgba(0, 7, 18, 0.790441) 71%); }
@@ -623,6 +640,13 @@ input:-webkit-autofill:focus, input:-webkit-autofill:active {
   -webkit-text-fill-color: #77a0b1; }
 
 /********* SECCION DASHBOARD *********/
+.swal2-popup {
+  background: #dfdfdf;
+  color: #0a2451; }
+
+.swal2-confirm {
+  background-color: #0a2451 !important; }
+
 .dashboard {
   display: grid;
   grid-template-columns: 1fr 4fr;

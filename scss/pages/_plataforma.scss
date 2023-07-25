@@ -1,5 +1,22 @@
 /********* PLATAFORMA *********/
 
+.body-plataforma {
+    position: relative;
+}
+.back-btn {
+    @include font (rgb(175, 202, 219), 3.5rem, 500);
+    border: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    transition: all .3s;
+    &:hover {
+        color: white;
+        transform: translateX(-5px)
+    }
+}
+
 .header-plataforma .navbar{
     background: rgb(0,7,18);
     background: linear-gradient(359deg, rgba(0,7,18,0) 18%, rgba(0,7,18,0.31985294117647056) 40%, rgba(0,7,18,0.7904411764705882) 71%);

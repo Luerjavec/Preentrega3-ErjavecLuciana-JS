@@ -1,4 +1,11 @@
 /********* SECCION DASHBOARD *********/
+.swal2-popup {
+    background: rgb(223, 223, 223);
+    color: (map-get($colors, "trueblue"));
+}
+.swal2-confirm {
+    background-color: (map-get($colors, "trueblue")) !important;
+}
 
 .dashboard {
     display: grid;

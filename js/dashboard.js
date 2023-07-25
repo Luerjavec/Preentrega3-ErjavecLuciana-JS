@@ -9,7 +9,15 @@ ejercicios = JSON.parse(localStorage.getItem("ejerciciosMV"));
 const sesion = JSON.parse(sessionStorage.getItem("sesionMV"));
 
 if ((usuarios === null) || sesion === null) {
-    alert("debés iniciar sesión")(window.location = "registration.html")
+    Swal.fire({
+        title: `Sesión caducada`,
+        text: `Volvé a iniciar sesión para acceder`,
+        icon: 'warning',
+        iconColor: '#6a1635',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        window.location = "registration.html";
+    })
 }
 
 let indexUs = usuarios.findIndex(u => u.email == sesion.email);
