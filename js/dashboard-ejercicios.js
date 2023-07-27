@@ -48,7 +48,7 @@ function menuEjercicios() {
 function visualizarEjercicio() {
     const ejercicioBoton = document.querySelectorAll(".ejercicio__btn");
     ejercicioBoton.forEach(boton => {
-        boton.addEventListener("click", (e) => {
+        boton.addEventListener("click", () => {
             sessionStorage.setItem("ejercicioElegido", JSON.stringify(boton.id)); //el id es igual al número de ejercicio
             window.location = "plataforma.html";
         })
@@ -58,7 +58,7 @@ function visualizarEjercicio() {
 function editarEjercicio() {
     const editarBoton = document.querySelectorAll(".ejercicio__edit");
     editarBoton.forEach(boton => {
-        boton.addEventListener("click", (e) => {
+        boton.addEventListener("click", () => {
             sessionStorage.setItem("ejercicioElegido", JSON.stringify(boton.id)); //el id es igual al número de ejercicio
             let btnType = boton.classList.toString()
 
@@ -88,7 +88,7 @@ function editarEjercicio() {
 
 function crearEjercicio() {
     const crearBoton = document.querySelector("#crearBtn")
-    crearBoton.addEventListener("click", (e) => {
+    crearBoton.addEventListener("click", () => {
         sessionStorage.setItem("accionEjercicios", JSON.stringify("crear"))
         window.location = "dashboard-crear.html"
     })

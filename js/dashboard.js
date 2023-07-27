@@ -36,7 +36,7 @@ function mostrarMenuLateral() {
 
 function cerrarSesion() {
     const salir = document.querySelector("#salir");
-    salir.addEventListener("click", (e) => {
+    salir.addEventListener("click", () => {
         sessionStorage.removeItem("sesionMV");
         window.location = "registration.html";
     })
